@@ -8,8 +8,26 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Product from './components/Product';
 import NavBar from './components/NavBar';
+import DealerRegistration from './components/DealerRegistration';
+import CreateProduct from './components/CreateProduct';
+import ViewProduct from './components/ViewProduct'
 
 
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {faTrash,faEdit,faList,faHome, faSignIn,faSignOut,faCameraRetro,faBomb,faPeopleGroup} from '@fortawesome/free-solid-svg-icons'
+import Logout from './components/LogOut';
+import DealerInfo from './components/DealerInfo';
+library.add(faTrash,faEdit,faList,faHome, faSignIn,faSignOut,faCameraRetro,faBomb,faPeopleGroup);
+
+/*To use the Font-awesome, install all given packages from npm into your app.
+
+npm i --save @fortawesome/fontawesome-svg-core
+npm i --save @fortawesome/free-solid-svg-icons
+npm i --save @fortawesome/react-fontawesome
+
+ * And import the library for the font-awesome
+
+*/
 /*
 	React Router is a standard library for routing in React. 
 	It enables the navigation among views of various components in a React Application, allows changing the browser URL, 
@@ -25,7 +43,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>Product Management System</h1>
+        <h1>ProductHive</h1>
       
       </header>
 
@@ -38,10 +56,13 @@ function App() {
             <NavBar></NavBar>
             <Routes>
               <Route path='/' exact Component={Home}></Route>
-              <Route path='register' Component={Register}></Route>
-              <Route path='login' Component={Login}></Route>
-              <Route path='products' Component={Product}></Route>
-
+              <Route path='/register' Component={DealerRegistration}></Route>
+              <Route path='/login' Component={Login}></Route>
+              <Route path='/product' Component={Product}></Route>
+              <Route path='/viewProduct/:id' Component={ViewProduct}/>
+              <Route path='/addProduct/:id' Component={CreateProduct}></Route>
+              <Route path='/logout' Component={Logout}></Route>
+              <Route path='/dealers' Component={DealerInfo}></Route>
              
              
             </Routes>
